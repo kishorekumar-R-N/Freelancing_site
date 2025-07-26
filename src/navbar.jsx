@@ -7,7 +7,7 @@ const navbar = () => {
     <div>
           <header>
         <div class="navbar">
-            <img class="logo" src={Jobster}/>
+            <div class="logoname"><img class="logo" src={Jobster}/><p>Jobster</p></div>
             <ul class="links">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Freelancers</a></li>

@@ -60,16 +60,29 @@
             justify-content: space-around;
             height: 80px;
         }
-        
-        .navbar .logo{
+        .logoname{
+            width: 150px;
+            height: 150px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .navbar .logoname .logo{
             height: 50px;
             width: 50px;
             background-color: var(--accent-color) ;
             border-radius: 10px;
         }
-        .navbar .logo:hover{
+        .navbar .logoname .logo:hover{
             background-color: var(--dark-bg);
-            
+            transition: 0.3s all ease-out;
+
+        }
+        p{
+            margin-left: 0;
+            color: white;
         }
         .navbar .links {
             display: flex;
