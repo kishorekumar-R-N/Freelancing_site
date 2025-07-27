@@ -201,3 +201,374 @@
             margin: 1rem auto;
             display: block;
         }
+        .section {
+            background: linear-gradient(120deg, var(--dark-bg) 0%, #2D2D42 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: clamp(3rem, 5vw, 5rem);
+            width: 100%;
+            margin: 80px auto 0 auto;
+            flex-wrap: wrap;
+            gap: 2rem;
+            min-height: 80vh;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section:before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(74, 123, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+            top: -250px;
+            right: -100px;
+            border-radius: 50%;
+        }
+        
+        .text {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section img {
+            max-height: 450px;
+            width: auto;
+            max-width: 45%;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
+            animation: float 6s ease-in-out infinite;
+            position: relative;
+            z-index: 2;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .section h1 {
+            color: var(--text-light);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        
+        .section h1 span {
+            color: var(--accent-color);
+        }
+        
+        .section p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: clamp(1rem, 1.5vw, 1.1rem);
+            line-height: 1.7;
+            max-width: 90%;
+        }
+        
+        /* Search Bar */
+        .search-container {
+            position: relative;
+            max-width: 500px;
+            margin: 2rem 0;
+        }
+        
+        .search-container form {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 6px;
+            position: relative;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .search-container form:focus-within {
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .search-container input {
+            background: transparent;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1rem;
+            color: var(--text-light);
+            flex: 1;
+            outline: none;
+            width: 100%;
+        }
+        
+        .search-container input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .search-container button {
+            background: var(--primary-color);
+            color: var(--text-light);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .search-container button:hover {
+            background: var(--secondary-color);
+        }
+        
+        .search-container button i {
+            font-size: 1.1rem;
+        }
+        
+        /* Content Section */
+        .content {
+            max-width: 1300px;
+            margin: 5rem auto;
+            padding: 0 2rem;
+        }
+        
+        .content h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .content h2:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+        }/* Enhanced Hero Banner Carousel with Smaller Items */
+.banner-hero {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    height: 400px;
+    position: relative;
+    perspective: 1200px;
+    z-index: 0;
+    margin: 0 auto;
+}
+
+.slider-hero {
+    position: absolute;
+    width: 180px;  /* Reduced from 220px */
+    height: 240px; /* Reduced from 280px */
+    top: 50%;
+    left: 50%;
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) perspective(1200px) rotateX(-5deg);
+    animation: autoRunHero 35s linear infinite;
+}
+
+@keyframes autoRunHero {
+    from {
+        transform: translate(-50%, -50%) perspective(1200px) rotateX(-5deg) rotateY(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) perspective(1200px) rotateX(-5deg) rotateY(360deg);
+    }
+}
+
+.slider-hero .item-hero:hover {
+    transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(350px) scale(1.08); /* Reduced from 420px */
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.slider-hero .item-hero {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(320px);
+    transform-style: preserve-3d;
+    border-radius: 10px;
+    overflow: hidden; /* Ensures no content spills out */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.slider-hero .item-hero img {
+    display: none; /* Hide <img> and use background instead */
+}
+.slider-hero .item-hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures full coverage without distortion */
+    object-position: center; /* Centers the image */
+    margin: 0;
+    padding: 0;
+    display: block;
+    filter: brightness(0.85) contrast(1.1);
+    transition: all 0.5s ease;
+}
+
+.slider-hero .item-hero:hover img {
+    filter: brightness(1.05) contrast(1.1);
+}
+
+.slider-hero .item-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, 
+                rgba(0, 0, 0, 0.1) 0%, 
+                rgba(0, 0, 0, 0) 40%,
+                rgba(0, 0, 0, 0.4) 80%,
+                rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
+    opacity: 0.8;
+    transition: opacity 0.4s ease;
+}
+
+.slider-hero .item-hero:hover::before {
+    opacity: 0.6;
+}
+
+.slider-hero .item-hero::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 0.8rem;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1rem; /* Reduced from 1.1rem */
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.4s ease;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slider-hero .item-hero:hover::after {
+    transform: translateY(-5px);
+    font-weight: 700;
+}
+
+/* Add subtle rotation effect on hover */
+.slider-hero .item-hero:nth-child(odd):hover {
+    transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(350px) scale(1.08) rotate(1deg);
+}
+
+.slider-hero .item-hero:nth-child(even):hover {
+    transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(350px) scale(1.08) rotate(-1deg);
+}
+
+/* Add subtle shine effect */
+.slider-hero .item-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    transition: all 0.75s ease;
+    opacity: 0;
+    z-index: 2;
+}
+
+.slider-hero .item-hero:hover::before {
+    animation: shine 1.5s forwards;
+}
+
+@keyframes shine {
+    0% {
+        transform: rotate(30deg) translateY(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: rotate(30deg) translateY(300%);
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments for hero banner */
+@media (max-width: 992px) {
+    .banner-hero {
+        height: 350px;
+        margin: 2rem auto 0;
+    }
+    
+    .slider-hero {
+        width: 160px;
+        height: 220px;
+    }
+    
+    .slider-hero .item-hero {
+        transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(280px);
+    }
+    
+    .slider-hero .item-hero:hover {
+        transform: rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(300px) scale(1.06);
+    }
+}
+
+/* Hide banner when page gets smaller */
+@media (max-width: 768px) {
+    .banner-hero {
+        display: none;
+    }
+    
+    /* Adjust section layout when banner is hidden */
+    .section {
+        justify-content: center;
+        padding: 4rem 2rem;
+    }
+    
+    .text {
+        text-align: center;
+        max-width: 100%;
+    }
+    
+    .search-container {
+        margin: 2rem auto;
+    }
+}
+
+/* Additional adjustments for very small screens */
+@media (max-width: 576px) {
+    .section {
+        padding: 3rem 1.5rem;
+    }
+}
